@@ -1,9 +1,20 @@
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+
+import HeaderNavbar from './components/HeaderNavbar';
+import HomePage from './pages/HomePage';
+
 function App() {
   return (
     <>
-    <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
+      <Router>
+        <HeaderNavbar />
+        
+        <Routes>
+          <Route path='/'>
+            <Route index={true} path="" element={<HomePage />} />
+          </Route>
+        </Routes>
+      </Router>
     </>
   )
 }
