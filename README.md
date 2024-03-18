@@ -1,30 +1,27 @@
-# React + TypeScript + Vite
+# JSON-server
+https://www.freecodecamp.org/news/json-server-for-frontend-development/
+- Used as mock server until I completed setting up api
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+## Install
+```
+npm install -g json-server
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## db.json
+- Create this file and add data to it in json format
+- Restful endpoints created based on the input data
+- Giving each object an id will allow you to access it with parameters
+```
+"plants":[
+    { "id": "1", "genus": "populous", "species": "tremuloides", "family":"populaceae", "commonName": "trembling aspen", "petals": 2, "sepals":2 },
+    { "id": "2", "genus": "betula", "species": "papyrifera", "family": "betulaceae", "commonName": "white birch", "petals": 3, "sepals": 2 }
+],
+```
+- Can then access plant as:
+```
+plants/:id
+```
+## Start
+```
+json-server --watch db.json
+```
